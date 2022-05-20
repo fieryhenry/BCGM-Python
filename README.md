@@ -75,7 +75,7 @@ I recommed putting adb in your Path system variable. To do that do this:
 
 6. Select option to decrypt .pack files
 
-7. Select .pack files that you want, they will be in `/assets` for local files in the extracted apk, or `/data/data/jp.co.ponos.battlecatsen/files ` for downloaded server files
+7. Select .pack files that you want, they will be in `/assets` for local files in the extracted apk, or `/data/data/jp.co.ponos.battlecatsen/files` for downloaded server files
 
 8. Once completed the files will be in `/game_files` in your current working directory
 
@@ -89,11 +89,9 @@ I recommed putting adb in your Path system variable. To do that do this:
 
 13. Get your `libnative-lib.so` file for your system architecture. You can find it in:
     
-    - The `/lib` folder of the extracted `apk`
+    - `/data/app/jp.co.ponos.battlecatsen-1/`
     
-    - `/data/app/jp.co.ponos.battlecatsen-1/{architecture}/`
-    
-    - `/data/data/jp.co.ponos.battlecatsen/lib`
+    - `/data/data/jp.co.ponos.battlecatsen/lib/`
 
 14. Run the tool and select the option to `Set md5 hashes in libnative-lib.so file`
 

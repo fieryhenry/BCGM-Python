@@ -5,7 +5,6 @@ import requests
 import os
 from colored import fg
 import tkinter as tk
-import wx
 from tkinter import filedialog as fd
 
 root = tk.Tk()
@@ -108,16 +107,6 @@ def check_update():
         coloured_text(f"&A new version is available!&\n&Please run &py -m pip install -U battle-cats-game-modder& to install it&",base=cyan, new=green)
         coloured_text(f"&See the changelog here: &https://github.com/fieryhenry/BCGM-Python/blob/master/changelog.md\n", base=cyan, new=green)
 
-def get_path(wildcard, default_dir="."):
-    style = wx.FD_OPEN | wx.FD_FILE_MUST_EXIST
-    dialog = wx.FileDialog(None, 'Select stage*.csv file', wildcard=wildcard, style=style)
-    dialog.SetDirectory(default_dir)
-    if dialog.ShowModal() == wx.ID_OK:
-        path = dialog.GetPath()
-    else:
-        path = None
-    dialog.Destroy()
-    return path
 def select_files(title, file_types, single=True, default=""):
     if single:
         path = fd.askopenfilename(title=title, filetypes=file_types, initialdir=default)
@@ -167,7 +156,10 @@ def selection_list(names, mode="Edit", index_flag=True, include_at_once=False, e
 def int_ls_to_str_ls(ls):
     new_ls = []
     for item in ls:
-        new_ls.append(int(item))
+        try:
+            new_ls.append(int(item))
+        except:
+            continue
     return new_ls
 
 
@@ -256,15 +248,16 @@ def parse_csv_file(path, lines=None, min_length=0, black_list=None):
         data.append(line_data)
     return data
 
-def filter_list(list_1, list_2):
-    for item in list_1.copy():
-        for banned in list_2:
+def filter_list(data : list, black_list : list):
+    trimmed_data = data
+    for i in range(len(data)):
+        item = data[i]
+        for banned in black_list:
             if banned in item:
-                try:
-                    list_1 = list_1[:list_1.index(item)]
-                except:
-                    pass
-    return list_1
+                index = item.index(banned)
+                item = item[:index]
+                trimmed_data[i] = item
+    return trimmed_data
 
 def md5_str(string, length=8):
     return bytearray(hashlib.md5(string.encode("utf-8")).digest()[:length]).hex().encode("utf-8")

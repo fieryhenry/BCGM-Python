@@ -23,7 +23,7 @@ setuptools.setup(
     packages=setuptools.find_packages(where="src"),
     python_requires=">=3.6",
     install_requires=[
-        "colored", "tk", "alive-progress", "pycryptodomex", "wxPython", "requests"
+        "colored", "tk", "alive-progress", "pycryptodomex", "requests"
     ],
     include_package_data=True
 )

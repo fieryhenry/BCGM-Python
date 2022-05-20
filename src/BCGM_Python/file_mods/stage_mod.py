@@ -27,8 +27,7 @@ enemy_infos = [
 
 def edit_stage():
     df_path = os.path.abspath(unit_mod.get_initial_dir())
-    csv_path = helper.get_path(
-        "Stage data files (stage*.csv)|stage*.csv", df_path)
+    csv_path = helper.select_files("Select *stage.csv files", [("stage data files", "stage*.csv")], default=df_path)
     if not csv_path:
         print("Please select a stage data file")
         return
@@ -99,3 +98,4 @@ def edit_stage():
     new_csv_data += enemy_slot_data
 
     helper.write_csv_file(csv_path, new_csv_data)
+    print("Successfully modified csv file")
