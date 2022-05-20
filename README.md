@@ -142,5 +142,3 @@ I recommed putting adb in your Path system variable. To do that do this:
 25. Open the game and see if it works.
 
 26. If it re-downloads game data maybe also try to replace the `file size` in bytes for the .pack file. Right click->properties->Size (not Size on disk)
-
-27. 
