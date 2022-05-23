@@ -50,7 +50,7 @@ I recommed putting adb in your Path system variable. To do that do this:
    If this method is too dificult, just use a root file explorer instead 
    and manually get the files that you want. The paths that you will need are:
    `/data/data/jp.co.ponos.battlecatsen/files` and
-   
+
    `/data/app/jp.co.ponos.battlecatsen-1`
 
 ---
@@ -64,11 +64,11 @@ I recommed putting adb in your Path system variable. To do that do this:
 3. Unpack the apk file for the game using apktool/APK Easy Tool
 
 4. Get the .pack and .list files that contain the files you want to edit:
-   
+
    - Most stats are in DataLocal
-   
+
    - Most text is in resLocal
-   
+
    - Sprites are in various Server files
 
 5. Then enter the command: `python -m BCGM_Python` to run the tool. If that doesn't work then use `py` instead of `python` in the command
@@ -88,9 +88,9 @@ I recommed putting adb in your Path system variable. To do that do this:
 12. Once complete the encrypted files will be `/encrypted_files` in your current working directory
 
 13. Get your `libnative-lib.so` file for your system architecture. You can find it in:
-    
+
     - `/data/app/jp.co.ponos.battlecatsen-1/`
-    
+
     - `/data/data/jp.co.ponos.battlecatsen/lib/`
 
 14. Run the tool and select the option to `Set md5 hashes in libnative-lib.so file`
@@ -98,33 +98,33 @@ I recommed putting adb in your Path system variable. To do that do this:
 15. Select your encrypted files in `/encrypted_files` in your current working directory
 
 16. Once done you can either:
-    
+
     1. Say yes to `push your modified libnative-lib.so file to the game`
-    
+
     2. Replace the libnative file in the apk for a permanent change.
-       
+
        - The `apk` must be signed - `APK Easy Tool`- for most devices to install the apk
-       
+
        - Then you must re-install app or replace the apk in `/data/app/jp.co.ponos.battlecats.../base.apk`
-    
+
     3. Manually replace the libnative file in `/data/app` 
-    
+
     4. Replace the libnative file in `/data/data/jp.co.ponos.battlecatsen/lib`  only if you modifed server files for your device.
-    
+
     I recommend doing 1 and 2 for local files. And all 3 for server files.
 
 17. You now need to put your encrypted files either into:
-    
+
     1. The apk if you modified local files
-       
+
        - The `apk` must be signed - `APK Easy Tool`- for most devices to install the apk
-       
+
        - Then you must re-install app or replace the apk in `/data/app/jp.co.ponos.battlecats.../base.apk`
-    
+
     2. `/data/data/jp.co.ponos.battlecatsen/files` if you modified server files
 
 18. Open the game and see if it works
-    
+
     ---
 
 19. If you modifed server files, you will need to find the associated `download.tsv` file for your .pack and .list files in the apk in `/assets/{language}`

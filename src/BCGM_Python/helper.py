@@ -221,7 +221,7 @@ def find_architecture(so_path):
 
 def find_app_path(game_version):
     package_name = f"jp.co.ponos.battlecats{game_version}"
-    output = subprocess.run(f"adb shell ls /data/app/ | grep {package_name}", capture_output=True)
+    output = subprocess.run(f"adb shell ls /data/app/ | grep {package_name}", capture_output=True, shell=True)
     app_path_name = output.stdout.decode("utf-8").split("\n")[0].strip("\n").strip("\r").strip()
     return app_path_name
 def adb_push_lib(game_version, local_path):
@@ -233,7 +233,7 @@ def adb_push_lib(game_version, local_path):
     architecture = find_architecture(local_path)
     path = f"/data/app/{app_path_name}/lib/{architecture}/libnative-lib.so"
 
-    subprocess.run(f"adb push \"{local_path}\" \"{path}\"")
+    subprocess.run(f"adb push \"{local_path}\" \"{path}\"", shell=True)
 def parse_csv_file(path, lines=None, min_length=0, black_list=None):
     if not lines:
         lines = open(path, "r", encoding="utf-8").readlines()
