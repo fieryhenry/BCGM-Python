@@ -4,6 +4,7 @@ dist/
 *.pyc*
 /game_files
 /decrypted_lists
+/encrypted_files
 *.c
 *.so
 /.vscode
