@@ -2,9 +2,11 @@
 
 A python game modding tool for the mobile game The Battle Cats that can decrypt, encrypt, and modify some game files.
 
+Note: I am no longer actively working on this tool so there may be bugs. I'm working on a simpler and much more powerful new modding tool that will replace this one when it's eventually finished.
+
 It is a pretty much direct port from my [C# game modding tool](https://github.com/fieryhenry/Battle-Cats-Game-Modder) with a few bug fixes.
 
-Join the [discord server](https://discord.gg/DvmMgvn5ZB) if you want to suggest new features, report bugs or get help on how to use the modder.
+Join the [discord server](https://discord.gg/DvmMgvn5ZB) if you want to suggest new features, report bugs or get help on how to use the modder. (Discord is the same one as for save editing as I haven't made a modding specific one yet)
 
 PyPi: https://pypi.org/project/battle-cats-game-modder/
 
@@ -22,48 +24,15 @@ If you want to support me then consider gifting me some ko-fi here: https://ko-f
 
 ## How to use:
 
-I recommed putting adb in your Path system variable. To do that do this:
-
-1. If you are using an emulator: Go to your emulator's install directory, if 
-   using LDPlayer it will most likely be in `C:/LDPlayer/LDPlayer4.0`.
-   Then find `adb` in that folder (other emulators might have it in the `bin`
-    directory)
-
-2. If you aren't using an emulator [Download the Android SDK Platform Tools ZIP file for Windows](https://dl.google.com/android/repository/platform-tools-latest-windows.zip), and unzip it.
-
-3. Copy the path to the directory that you are in
-
-4. Then open the start menu and search: `edit the system environment 
-   variables` and press enter.
-
-5. Then click on the `Environment Variables` button.
-
-6. Then in the `System variables` box find the variable named `Path`, then 
-   click on the `edit` button.
-
-7. Then click `New` and paste the path into it.
-
-8. Click `Ok` then `Ok` again then `Ok` again.
-
-9. Relaunch powershell and maybe restart your whole pc, and try the command
-    again.
-   If this method is too dificult, just use a root file explorer instead 
-   and manually get the files that you want. The paths that you will need are:
-   `/data/data/jp.co.ponos.battlecatsen/files` and
-
-   `/data/app/jp.co.ponos.battlecatsen-1`
-
----
-
-### How to edit game data
-
 1. Install python (If you haven't already) https://www.python.org/downloads/
 
-2. Enter the command: `python -m pip install -U battle-cats-game-modder` into cmd or another terminal to install the editor. If that doesn't work then use `py` instead of `python` in the command
+1. Enter the command: `py -m pip install -U battle-cats-game-modder` into cmd or another terminal to install the editor. If that doesn't work then use `python` instead of `py` in the command
 
-3. Unpack the apk file for the game using apktool/APK Easy Tool
+1. Unpack the apk file for the game using [Apktool](https://ibotpeaches.github.io/Apktool/) or [APKToolGui](https://github.com/AndnixSH/APKToolGUI).
 
-4. Get the .pack and .list files that contain the files you want to edit:
+1. You can then find the .pack and .list files in the assets folder of the extracted APK.
+
+1. Get the .pack and .list files that contain the files you want to edit:
 
    - Most stats are in DataLocal
 
@@ -71,74 +40,34 @@ I recommed putting adb in your Path system variable. To do that do this:
 
    - Sprites are in various Server files
 
-5. Then enter the command: `python -m BCGM_Python` to run the tool. If that doesn't work then use `py` instead of `python` in the command
+1. Then enter the command: `py -m BCGM_Python` to run the tool. If that doesn't work then use `python` instead of `py` in the command
 
-6. Select option to decrypt .pack files
+1. Select option to decrypt .pack files
 
-7. Select .pack files that you want, they will be in `/assets` for local files in the extracted apk, or `/data/data/jp.co.ponos.battlecatsen/files` for downloaded server files
+1. Select .pack files that you want, they will be in `/assets` for local files in the extracted apk, or `/data/data/jp.co.ponos.battlecatsen/files` for downloaded server files
 
-8. Once completed the files will be in `/game_files` in your current working directory
+1. Also decrypt the DownloadLocal pack as you will need it for later
 
-9. You can manually edit the data, or use the option in the tool that you want
+1. Once completed the files will be in a `game_files` folder in the folder you ran the command from
 
-10. Once edited, open the tool and select the `encrypt` option
+1. You can manually edit the data, or use the option in the tool that you want
 
-11. Select the folder of the game files
+1. Once edited, you should place any modified files in the DownloadLocal pack folder
+   
+1. Open the tool again and select the `encrypt` option
 
-12. Once complete the encrypted files will be `/encrypted_files` in your current working directory
+1. Select the DownloadLocal folder
 
-13. Get your `libnative-lib.so` file for your system architecture. You can find it in:
+1. Once complete the encrypted .pack and .list files will be in an`encrypted_files` folder in the folder you ran the command from
 
-    - `/data/app/jp.co.ponos.battlecatsen-1/`
+1. If you are asked if you want to patch the libnative file, say no as this featrue is currently broken and you do not need to do it if you placed your files in DownloadLocal
 
-    - `/data/data/jp.co.ponos.battlecatsen/lib/`
+1. Then you need to place the encrypted .pack and .list files back into the assets folder of the apk
 
-14. Run the tool and select the option to `Set md5 hashes in libnative-lib.so file`
+1. You then need to pack the apk using apktool or apktoolgui
 
-15. Select your encrypted files in `/encrypted_files` in your current working directory
+1. You then need to sign the apk using apktool or apktoolgui
 
-16. Once done you can either:
+1. You then need to install the apk, you may have to uninstall the game first before installing the modified apk for the first time
 
-    1. Say yes to `push your modified libnative-lib.so file to the game`
-
-    2. Replace the libnative file in the apk for a permanent change.
-
-       - The `apk` must be signed - `APK Easy Tool`- for most devices to install the apk
-
-       - Then you must re-install app or replace the apk in `/data/app/jp.co.ponos.battlecats.../base.apk`
-
-    3. Manually replace the libnative file in `/data/app` 
-
-    4. Replace the libnative file in `/data/data/jp.co.ponos.battlecatsen/lib`  only if you modifed server files for your device.
-
-    I recommend doing 1 and 2 for local files. And all 3 for server files.
-
-17. You now need to put your encrypted files either into:
-
-    1. The apk if you modified local files
-
-       - The `apk` must be signed - `APK Easy Tool`- for most devices to install the apk
-
-       - Then you must re-install app or replace the apk in `/data/app/jp.co.ponos.battlecats.../base.apk`
-
-    2. `/data/data/jp.co.ponos.battlecatsen/files` if you modified server files
-
-18. Open the game and see if it works
-
-    ---
-
-19. If you modifed server files, you will need to find the associated `download.tsv` file for your .pack and .list files in the apk in `/assets/{language}`
-
-20. Open the file in notepad, you will see the `name` of the file, then a tab, then the `file size` in bytes, then a tab, then the `md5 hash` of that file.
-
-21. You need to modify that `md5 hash` so that the game doesn't re-download the server data
-
-22. Go to here: https://emn178.github.io/online-tools/md5_checksum.html and drag and drop the file in
-
-23. Copy the hash and replace the one in the `tsv` with that one.
-
-24. Replace the apk in `/data/app/jp.co.ponos.battlecats.../base.apk` with your apk, use `apktool/APK Easy Tool` to sign the app and pack it into an apk again.
-
-25. Open the game and see if it works.
-
-26. If it re-downloads game data maybe also try to replace the `file size` in bytes for the .pack file. Right click->properties->Size (not Size on disk)
+1. Open the game and see if it works
