@@ -4,27 +4,25 @@ A python game modding tool for the mobile game The Battle Cats that can decrypt,
 
 Note: I am no longer actively working on this tool so there may be bugs. I'm working on a simpler and much more powerful new modding tool that will replace this one when it's eventually finished.
 
-It is a pretty much direct port from my [C# game modding tool](https://github.com/fieryhenry/Battle-Cats-Game-Modder) with a few bug fixes.
-
 Join the [discord server](https://discord.gg/DvmMgvn5ZB) if you want to suggest new features, report bugs or get help on how to use the modder. (Discord is the same one as for save editing as I haven't made a modding specific one yet)
 
-PyPi: https://pypi.org/project/battle-cats-game-modder/
+PyPi: <https://pypi.org/project/battle-cats-game-modder/>
 
-If you want to support me then consider gifting me some ko-fi here: https://ko-fi.com/fieryhenry
+If you want to support me then consider gifting me some ko-fi here: <https://ko-fi.com/fieryhenry>
 
-## Thanks to:
+## Thanks to
 
-- EasyMoneko for the original keys for decrypting/encrypting: https://www.reddit.com/r/battlecats/comments/41e4l1/is_there_anyone_able_to_access_bc_files_your_help/
+- EasyMoneko for the original keys for decrypting/encrypting: <https://www.reddit.com/r/battlecats/comments/41e4l1/is_there_anyone_able_to_access_bc_files_your_help/>
 
-- Battle Cats Ultimate for what some of the numbers mean in various csvs. https://github.com/battlecatsultimate 
+- Battle Cats Ultimate for what some of the numbers mean in various csvs. <https://github.com/battlecatsultimate>
 
-- This resource for unit csvs: https://pastebin.com/JrCTPnUV
+- This resource for unit csvs: <https://pastebin.com/JrCTPnUV>
 
 - Vi on discord for enemy csvs
 
-## How to use:
+## How to use
 
-1. Install python (If you haven't already) https://www.python.org/downloads/
+1. Install python (If you haven't already) <https://www.python.org/downloads/>
 
 1. Enter the command: `py -m pip install -U battle-cats-game-modder` into cmd or another terminal to install the editor. If that doesn't work then use `python` instead of `py` in the command
 
@@ -53,7 +51,7 @@ If you want to support me then consider gifting me some ko-fi here: https://ko-f
 1. You can manually edit the data, or use the option in the tool that you want
 
 1. Once edited, you should place any modified files in the DownloadLocal pack folder
-   
+
 1. Open the tool again and select the `encrypt` option
 
 1. Select the DownloadLocal folder
