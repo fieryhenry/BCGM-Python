@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.0.5] - 2023-07-08
+
+#### Fixed
+
+- Changed colored to version 1.4.4 because newer versions of colored don't work with the tool
+
 ## [1.0.4] - 2022-05-24
 
 #### Fixed
