@@ -26,6 +26,8 @@ If you want to support me then consider gifting me some ko-fi here: <https://ko-
 
 1. Enter the command: `py -m pip install -U battle-cats-game-modder` into cmd or another terminal to install the editor. If that doesn't work then use `python` instead of `py` in the command
 
+1. Download the apk you want to edit from somewhere like [uptodown](https://the-battle-cats.en.uptodown.com/android/download) or [apkmirror](https://www.apkmirror.com/apk/ponos/the-battle-cats)
+
 1. Unpack the apk file for the game using [Apktool](https://ibotpeaches.github.io/Apktool/) or [APKToolGui](https://github.com/AndnixSH/APKToolGUI).
 
 1. You can then find the .pack and .list files in the assets folder of the extracted APK.
@@ -42,7 +44,7 @@ If you want to support me then consider gifting me some ko-fi here: <https://ko-
 
 1. Select option to decrypt .pack files
 
-1. Select .pack files that you want, they will be in `/assets` for local files in the extracted apk, or `/data/data/jp.co.ponos.battlecatsen/files` for downloaded server files
+1. Select .pack files that you want, they will be in the `assets` folder in the apk for local files, or `/data/data/jp.co.ponos.battlecatsen/files` on your device (if rooted) for downloaded server files
 
 1. Also decrypt the DownloadLocal pack as you will need it for later
 
