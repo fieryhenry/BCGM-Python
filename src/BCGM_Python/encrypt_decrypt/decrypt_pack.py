@@ -1,4 +1,4 @@
-import helper
+from BCGM_Python import helper
 import os
 from Cryptodome.Cipher import AES
 from alive_progress import alive_bar

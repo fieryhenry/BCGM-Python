@@ -1,6 +1,6 @@
-import BCGM_Python.helper as helper
-from encrypt_decrypt import decrypt_pack, encrypt_pack
-from file_mods import unit_mod, enemy_mod, stage_mod
+from BCGM_Python import helper
+from BCGM_Python.encrypt_decrypt import decrypt_pack, encrypt_pack
+from BCGM_Python.file_mods import unit_mod, enemy_mod, stage_mod
 
 features = {
     "Pack File Encrypting / Decrypting": {

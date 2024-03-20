@@ -1,5 +1,5 @@
 from alive_progress import alive_bar
-import helper
+from BCGM_Python import helper
 import os
 import glob
 from Cryptodome.Cipher import AES

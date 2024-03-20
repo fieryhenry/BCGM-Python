@@ -1,6 +1,6 @@
 import os
-import helper
-from file_mods import unit_mod
+from BCGM_Python import helper
+from BCGM_Python.file_mods import unit_mod
 
 stage_infos = [
     "Stage Width",
@@ -27,13 +27,16 @@ enemy_infos = [
 
 def edit_stage():
     df_path = os.path.abspath(unit_mod.get_initial_dir())
-    csv_path = helper.select_files("Select *stage.csv files", [("stage data files", "stage*.csv")], default=df_path)
+    csv_path = helper.select_files(
+        "Select *stage.csv files", [("stage data files", "stage*.csv")], default=df_path
+    )
     if not csv_path:
         print("Please select a stage data file")
         return
 
     csv_file_data = helper.parse_csv_file(
-        csv_path, min_length=3, black_list=["//", "\n"])
+        csv_path, min_length=3, black_list=["//", "\n"]
+    )
 
     stage_id = None
 
@@ -60,7 +63,13 @@ def edit_stage():
         return
     if option == 1:
         stage_data = helper.edit_array_user(
-            stage_infos, stage_data, "Basic Stage Stats", "value", extra_values=stage_data, all_at_once=False)
+            stage_infos,
+            stage_data,
+            "Basic Stage Stats",
+            "value",
+            extra_values=stage_data,
+            all_at_once=False,
+        )
     elif option == 2:
         enemy_ids = []
         for i in range(len(enemy_slot_data)):
@@ -69,7 +78,8 @@ def edit_stage():
                 enemy_ids.append(f"Enemy id {slot[0]}")
 
         helper.coloured_text(
-            "Enter an enemy slot id (to add new slots just enter a number larger than the highest displayed slot id):")
+            "Enter an enemy slot id (to add new slots just enter a number larger than the highest displayed slot id):"
+        )
         ids = helper.selection_list(enemy_ids, "edit", all_at_once=False)
         for id in ids:
             id = helper.validate_int(id)
@@ -85,10 +95,17 @@ def edit_stage():
                 enemy_infos_trimmed = enemy_infos[:-1]
             helper.coloured_text(f"Slot: &{id+1}& is currently selected")
             enemy_slot_data[id] = helper.edit_array_user(
-                enemy_infos_trimmed, enemy_slot_data[id], "Enemy Slots", "value", extra_values=enemy_slot_data[id])
+                enemy_infos_trimmed,
+                enemy_slot_data[id],
+                "Enemy Slots",
+                "value",
+                extra_values=enemy_slot_data[id],
+            )
     elif option == 3 and stage_id != None:
         stage_id = helper.coloured_text(
-            f"Current stage id: &{stage_id}&\nWhat do you want to set the stage id to?:", is_input=True)
+            f"Current stage id: &{stage_id}&\nWhat do you want to set the stage id to?:",
+            is_input=True,
+        )
 
     new_csv_data = []
 

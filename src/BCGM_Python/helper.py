@@ -5,11 +5,11 @@ import requests
 import os
 from colored import fg
 
-from BCGM_Python import root, tk, fd
+import BCGM_Python
 
 
 def did_tk_fail():
-    return root is None or tk is None or fd is None
+    return BCGM_Python.root is None or BCGM_Python.tk is None or BCGM_Python.fd is None
 
 
 green = "#008000"
@@ -143,7 +143,7 @@ def select_files(title, file_types, single=True, default=""):
                 print(f"The path {path} does not exist")
                 return
         else:
-            path = fd.askopenfilename(
+            path = BCGM_Python.fd.askopenfilename(
                 title=title, filetypes=file_types, initialdir=default
             )
     else:
@@ -163,7 +163,7 @@ def select_files(title, file_types, single=True, default=""):
             path = paths
         else:
             path = list(
-                fd.askopenfilenames(
+                BCGM_Python.fd.askopenfilenames(
                     title=title, filetypes=file_types, initialdir=default
                 )
             )
@@ -306,7 +306,7 @@ def select_dir(title, initial_dir):
             print(f"The path {path} does not exist")
             return
     else:
-        path = fd.askdirectory(title=title, initialdir=initial_dir)
+        path = BCGM_Python.fd.askdirectory(title=title, initialdir=initial_dir)
     return path
 
 
