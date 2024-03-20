@@ -21,7 +21,7 @@ def create_list(game_files_dir, pkname):
     address = 0
     for i in range(len(files_with_size)):
         file = files_with_size[i]
-        if "imagedatalocal" not in pkname.lower() and file[1] % 16 != 0:
+        if "imagedatalocal" not in pkname.lower():
             data = helper.open_file_b(file[0])
             data = helper.add_pkcs7_padding(data)
             file = (file[0], len(data))
