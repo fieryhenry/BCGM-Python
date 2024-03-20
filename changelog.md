@@ -2,6 +2,10 @@
 
 ## [1.0.6] - 2024-03-20
 
+#### Added
+
+- Ways to manually select files/folders without tkinter if it's not installed
+
 #### Fixed
 
 - Not removing padding from the end of the file after decrypting

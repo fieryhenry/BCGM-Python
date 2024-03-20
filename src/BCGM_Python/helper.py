@@ -4,11 +4,13 @@ import math
 import requests
 import os
 from colored import fg
-import tkinter as tk
-from tkinter import filedialog as fd
 
-root = tk.Tk()
-root.withdraw()
+from BCGM_Python import root, tk, fd
+
+
+def did_tk_fail():
+    return root is None or tk is None or fd is None
+
 
 green = "#008000"
 dark_yellow = "#d7c32a"
@@ -135,11 +137,36 @@ def check_update():
 
 def select_files(title, file_types, single=True, default=""):
     if single:
-        path = fd.askopenfilename(title=title, filetypes=file_types, initialdir=default)
+        if did_tk_fail():
+            path = input(f"Enter the path to {title}: ")
+            if not os.path.exists(path):
+                print(f"The path {path} does not exist")
+                return
+        else:
+            path = fd.askopenfilename(
+                title=title, filetypes=file_types, initialdir=default
+            )
     else:
-        path = fd.askopenfilenames(
-            title=title, filetypes=file_types, initialdir=default
-        )
+        if did_tk_fail():
+            paths = []
+            print(f"Enter paths:")
+            while True:
+                path = input(
+                    f"Enter a path to {title} (Leave blank to finish inputing): "
+                )
+                if path == "":
+                    break
+                if not os.path.exists(path):
+                    print(f"The path {path} does not exist")
+                    continue
+                paths.append(path)
+            path = paths
+        else:
+            path = list(
+                fd.askopenfilenames(
+                    title=title, filetypes=file_types, initialdir=default
+                )
+            )
     return path
 
 
@@ -273,7 +300,13 @@ def edit_array_user(
 
 
 def select_dir(title, initial_dir):
-    path = fd.askdirectory(title=title, initialdir=initial_dir)
+    if did_tk_fail():
+        path = input(f"Enter the path to {title}: ")
+        if not os.path.exists(path):
+            print(f"The path {path} does not exist")
+            return
+    else:
+        path = fd.askdirectory(title=title, initialdir=initial_dir)
     return path
 
 
