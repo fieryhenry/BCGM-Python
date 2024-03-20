@@ -87,7 +87,7 @@ If you want to support me then consider gifting me some ko-fi here:
    an`encrypted_files` folder in the folder you ran the command from
 
 1. If you are asked if you want to patch the libnative file, say no as this
-   featrue is currently broken and you do not need to do it if you placed your
+   feature is broken and you do not need to do it if you placed your
    files in DownloadLocal
 
 1. Then you need to place the encrypted .pack and .list files back into the
