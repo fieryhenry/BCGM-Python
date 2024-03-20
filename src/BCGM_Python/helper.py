@@ -120,7 +120,7 @@ def check_update():
     if not latest_version:
         return
     coloured_text(f"The latest version available is &{latest_version}&\n", new=green)
-    if installed_version != latest_version:
+    if installed_version < latest_version:
         coloured_text(
             f"&A new version is available!&\n&Please run &py -m pip install -U battle-cats-game-modder& to install it&",
             base=cyan,
