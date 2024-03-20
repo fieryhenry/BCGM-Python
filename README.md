@@ -101,3 +101,22 @@ If you want to support me then consider gifting me some ko-fi here:
    before installing the modified apk for the first time
 
 1. Open the game and see if it works
+
+## Install from source
+
+1. Install python <https://www.python.org/downloads/>
+
+1. Install git <https://git-scm.com/downloads>
+
+1. Enter the command: `git clone https://github.com/fieryhenry/BCGM-Python.git`
+
+1. Enter the command: `cd BCGM-Python`
+
+1. Enter the command: `py -m pip install -e .` to install the tool. If that
+   doesn't work then use `python` instead of `py` in the command
+
+1. Enter the command: `py -m BCGM_Python` to run the tool. If that doesn't work
+   then use `python` instead of `py` in the command
+
+1. If you want to update the tool then enter the command: `git pull` in the
+   `BCGM-Python` folder
