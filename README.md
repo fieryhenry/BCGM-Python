@@ -1,5 +1,8 @@
 # Battle Cats Game Modding Tool
 
+## Please see this repo on Codeberg instead: <https://codeberg.org/fieryhenry/BCGM-Python>
+## This GitHub repo will no longer be updated and may be deleted in the future.
+
 A python game modding tool for the mobile game The Battle Cats that can decrypt,
 encrypt, and modify some game files.
 
